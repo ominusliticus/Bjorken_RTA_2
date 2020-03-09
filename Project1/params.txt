@@ -1,0 +1,31 @@
+// if equal to 1 then use constant teq otherwise use constant etabar
+// only one of the subsequent params is used depending on the value of the constant_teq variable
+constant_teq	0
+
+// teq in fm/c
+teq	0.25
+
+// 4*Pi*eta/S
+fpieb	1
+
+// initial time in fm/c
+t0	1
+// Uli says - tau_0 * T_0 = 0.8
+
+// final time in fm/c
+tf	5
+
+// initial temperature in GeV
+T0	0.60
+
+// initial anisotropy
+xi0	0.0
+
+// number of grid points to use
+num	500
+
+// number of steps per iteration block
+stepsize	10
+
+// numbers of points to output
+grid_points	250

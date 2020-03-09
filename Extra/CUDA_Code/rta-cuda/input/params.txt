@@ -1,0 +1,45 @@
+// number of spatial grid points (should be even)
+num	1024
+
+// max number of iterations
+maxiters	200
+
+// how many steps before displaying summary info on screen
+update	10
+
+// how many steps before dumping variables to a "snapshot" file 
+snapupdate	10
+
+// initial time in fm/c0
+t0	1e-1
+
+// final time in fm/c
+tf	1e+2
+
+// initial temperature in GeV
+T0	1
+
+// initial alpha_0
+a0	1
+
+// 4 Pi eta / S; 1 is AdS/CFT lower bound
+// eb = 0.2 is fpieb = 2.51327
+fpieb	2.51327
+
+// compute moments
+computeM	1
+maxN		8
+maxM		8
+
+// compute f
+// If set to 1, then the code computes and outputs the
+// full distribution function at the end
+computeF	1
+
+// if computeF==1 then the following grid is used
+numPZ	500
+numPT	500
+maxPZ	50
+maxPT	50
+// time step size;  should be a factor of num
+fStep	64

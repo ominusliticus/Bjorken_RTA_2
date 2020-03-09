@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="memory.cu" />
+    <CudaCompile Include="rta.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="outputroutines.cpp" />
+    <ClCompile Include="paramreader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="memory.h" />
+    <ClInclude Include="outputroutines.h" />
+    <ClInclude Include="paramreader.h" />
+    <ClInclude Include="rta.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="output">
+      <UniqueIdentifier>{25dbd7ed-b501-4657-857b-2949e5d85277}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="params.txt" />
+  </ItemGroup>
+</Project>

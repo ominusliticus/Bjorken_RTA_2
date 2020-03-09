@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RTA_CUDA", "RTA_CUDA\RTA_CUDA.vcxproj", "{6662381F-10C1-443C-8BEF-7513F8584475}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6662381F-10C1-443C-8BEF-7513F8584475}.Debug|x64.ActiveCfg = Debug|x64
+		{6662381F-10C1-443C-8BEF-7513F8584475}.Debug|x64.Build.0 = Debug|x64
+		{6662381F-10C1-443C-8BEF-7513F8584475}.Release|x64.ActiveCfg = Release|x64
+		{6662381F-10C1-443C-8BEF-7513F8584475}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77D2E5B9-DCA8-40EE-8AC2-A34A6B0AFC80}
+	EndGlobalSection
+EndGlobal
