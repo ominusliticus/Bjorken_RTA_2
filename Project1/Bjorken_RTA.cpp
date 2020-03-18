@@ -101,8 +101,9 @@ Bjorken_RTA::Bjorken_RTA(string param_file_name, string data_file_name, double m
 
 	do
 	{
+		int c;
 		double a, b;
-		dataFile >> a >> b;
+		dataFile >> c >> a >> b;
 		// cout << a << "\t" << b << endl;
 		tau.push_back(a);
 		T_eff.push_back(b);
@@ -329,8 +330,8 @@ double Bjorken_RTA::SPD(double ttau, double ww, double pT)
 			double trpos = 1.0 / tau_r(xpos);
 			double trneg = 1.0 / tau_r(xneg);
 
-			double dfpos = Decay_factor(tau0, xpos);
-			double dfneg = Decay_factor(tau0, xneg);
+			double dfpos = Decay_factor(xpos, ttau);
+			double dfneg = Decay_factor(xneg, ttau);
 
 			double fqpos = feq(xpos, ww, pT);
 			double fqneg = feq(xneg, ww, pT);

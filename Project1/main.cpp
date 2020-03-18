@@ -6,6 +6,7 @@
 #include <string>
 
 using namespace std;
+double test_funct(double x, double y);
 
 int main(int argc, char** argv)
 {
@@ -17,9 +18,9 @@ int main(int argc, char** argv)
 	int a[2] = { 0, 0 };
 	int d = 2;
 
-	double mom_limits[2] = { 10.0, 10.0 }; ///< GeV
+	double mom_limits[2] = { 15.0, 15.0 }; ///< GeV
 	string paramFile = "params.txt";
-	string dataFile = "output/T_500.dat";
+	string dataFile = "output/beta_vs_tau_200.dat";
 	Bjorken_RTA *myClass = new Bjorken_RTA(paramFile, dataFile, mom_limits);
 
 	cout << "Class initialized!" << endl;
@@ -108,6 +109,57 @@ int main(int argc, char** argv)
 						0.0073275539012763,
 						0.0031533460523058 };
 
+	const int NSUM48 = 24;
+	double x48[NSUM48] = { 0.0323801709628694,
+						0.0970046992094627,
+						0.1612223560688917,
+						0.2247637903946891,
+						0.2873624873554556,
+						0.3487558862921608,
+						0.4086864819907167,
+						0.4669029047509584,
+						0.5231609747222330,
+						0.5772247260839727,
+						0.6288673967765136,
+						0.6778723796326639,
+						0.7240341309238146,
+						0.7671590325157404,
+						0.8070662040294426,
+						0.8435882616243935,
+						0.8765720202742479,
+						0.9058791367155696,
+						0.9313866907065543,
+						0.9529877031604309,
+						0.9705915925462473,
+						0.9841245837228269,
+						0.9935301722663508,
+						0.9987710072524261 };
+	double w48[NSUM48] = { 0.0647376968126839,
+						0.0644661644359501,
+						0.0639242385846482,
+						0.0631141922862540,
+						0.0620394231598927,
+						0.0607044391658939,
+						0.0591148396983956,
+						0.0572772921004032,
+						0.0551995036999842,
+						0.0528901894851937,
+						0.0503590355538545,
+						0.0476166584924905,
+						0.0446745608566943,
+						0.0415450829434647,
+						0.0382413510658307,
+						0.0347772225647704,
+						0.0311672278327981,
+						0.0274265097083569,
+						0.0235707608393244,
+						0.0196161604573555,
+						0.0155793157229438,
+						0.0114772345792345,
+						0.0073275539012763,
+						0.0031533460523058 };
+
+
 	double pi = 4.0 * atan(1.0);
 	double tau0 = myClass->tau[0];
 	double tauf = 50;  ///< fm/c
@@ -124,6 +176,36 @@ int main(int argc, char** argv)
 	double* T_eff = new double[count];
 	tau = myClass->tau.data();
 	T_eff = myClass->T_eff.data();
+
+	// for (int n = 1; n < 10; n++)
+	// {
+	// 	double xmax = double(n) * 10;
+	// 	double ymax = double(n) * 7.5;
+	// 	double result = 0;
+	// 	for (int i = 0; i < NSUM48; i++)
+	// 	{
+	// 		double xneg = xmax * (-x48[i] + 1.0) / 2.0;
+	// 		double xpos = xmax * (x48[i] + 1.0) / 2.0;
+	// 		double resultt = 0.0;
+	// 		for (int j = 0; j < NSUM; j++)
+	// 		{
+	// 			double yneg = ymax * (-x48[j] + 1.0) / 2.0;
+	// 			double ypos = ymax * (x48[j] + 1.0) / 2.0;
+	// 
+	// 			double fpp = test_funct(xpos, ypos);
+	// 			double fpn = test_funct(xpos, yneg);
+	// 			double fnp = test_funct(xneg, ypos);
+	// 			double fnn = test_funct(xneg, yneg);
+	// 			
+	// 			resultt += w48[j] * (fpp + fpn + fnp + fnn);
+	// 		}
+	// 		result += resultt * xmax * ymax / 4.0;
+	// 	}
+	// 	cout << "Integration result for: " << endl;
+	// 	cout << "x upper bound: \t" << xmax << endl;
+	// 	cout << "y upper bound: \t" << ymax << endl;
+	// 	cout << "Integration result: \t" << result << endl << endl;
+	// }
 
 	// ofstream t_evolution, spd_surface;
 	// t_evolution.open("output/t_evolution.dat");
@@ -153,7 +235,7 @@ int main(int argc, char** argv)
 		fatalError("Failed to open pt.dat or pl.dat");
 	 
 	cout << "tau\t e \t u \t pt \t PT \t pl \t pL" << endl;
-	for (int i = 100; i < count; i++)
+	for (int i = 0; i < count; i++)
 	{
 		double t = tau[i];
 		double T = T_eff[i];
@@ -182,4 +264,9 @@ int main(int argc, char** argv)
 	
 	// myClass->~Bjorken_RTA();
 	return 0;
+}
+
+double test_funct(double x, double y)
+{
+	return pow(cos(x * y), 2.0) * exp(-x * y);
 }
