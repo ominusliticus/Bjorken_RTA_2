@@ -10,7 +10,7 @@ set term wxt 0
 set ylabel "energy density [GeV/fm^3]"
 set xlabel "proper time [fm/c]"
 #set logscale y
-plot datafile u 1:2 ps 0.2 lc rgb 'blue' title 'Ingles', datafile u 1:3 ps 0.2 lc rgb 'red' title 'Strickland', 'e_exact.dat' u 1:2 ps 0.2 lc rgb 'green' title 'McNelis', 'e_vs_tau_200.dat' u 2:3 ps 0.2 lc rgb 'black' title 'Gojko'
+plot datafile u 1:3 ps 0.2 lc rgb 'red' title 'Strickland', 'e_exact.dat' u 1:2 ps 0.2 lc rgb 'green' title 'McNelis', 'e_vs_tau_200.dat' u 2:3 ps 0.2 lc rgb 'black' title 'Gojko', datafile u 1:2 ps 0.2 lc rgb 'blue' title 'Ingles'
 
 set terminal pdf
 set output 'e_evolution.pdf'
