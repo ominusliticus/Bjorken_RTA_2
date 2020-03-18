@@ -1,0 +1,24 @@
+cmake_minimum_required (VERSION 2.6)
+project (integrate_gubser_RTA)
+
+#for MacOSX
+#cmake_policy(SET CMP0042 NEW)
+
+set (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_HOME_DIRECTORY}")
+
+find_package (GSL REQUIRED)
+
+set (CMAKE_CXX_FLAGS "${GSL_CXX_FLAGS} -g -O3 -std=c++11")
+
+if(OPENMP_FOUND)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
+endif()
+
+SET(INCLUDE_DIRS ${GSL_INCLUDE_DIR})
+SET(LIBS ${GSL_LIBRARIES})
+
+INCLUDE_DIRECTORIES(${INCLUDE_DIRS})
+
+add_subdirectory(src)
